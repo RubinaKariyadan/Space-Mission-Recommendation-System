@@ -28,6 +28,6 @@ if st.button("Recommend Mission"):
 
 
 
-ChatGPT can make mistakes. Check import
+
 st.write("App loaded successfully")
 st.write("Data-Driven Decision Support for Space Mission Planning")
