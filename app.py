@@ -20,9 +20,10 @@ risk = st.sidebar.selectbox("Risk Tolerance", ["Low", "Medium", "High"])
 
 st.subheader("Dataset Overview")
 
+
 recommendation = None
 if st.button("Recommend Mission"):
-    recommendation = recommend_mission(budget, risk)
+    recommendation = Recommend_Mission(budget, risk)
 if recommendation:
     st.write(recommendation)
 
