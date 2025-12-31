@@ -22,7 +22,7 @@ st.subheader("Dataset Overview")
 
 
 recommendation = None
-if st.button("Recommend Mission"):
+if st.button("Recommend_Mission"):
     recommendation = Recommend_Mission(budget, risk)
 if recommendation:
     st.write(recommendation)
