@@ -31,12 +31,13 @@ def Recommend_Mission(budget, risk):
     else:
         filtered = filtered[filtered["Mission Success (%)"] >= 50]
     return filtered.head(3)
+recommendation=None
 
 
 
 if st.button("Recommend_Mission"):
     recommendation = Recommend_Mission(budget, risk)
-if recommendation:
+if recommendation is not None:
     st.write(recommendation)
 
 
