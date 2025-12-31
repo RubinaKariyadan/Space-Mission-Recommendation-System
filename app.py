@@ -1,6 +1,8 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+from sklearn.cluster import KMeans
+from sklearn.preprocessing import StandardScaler
 df = pd.read_csv("space_missions_dataset.csv")
 st.dataframe(df.head())
 df["Scientific_ROI"] = (
