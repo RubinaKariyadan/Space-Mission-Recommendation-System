@@ -19,9 +19,21 @@ budget = st.sidebar.slider("Budget (Billion USD)", 10, 500, 100)
 risk = st.sidebar.selectbox("Risk Tolerance", ["Low", "Medium", "High"])
 
 st.subheader("Dataset Overview")
+def Recommend_Mission(budget, risk):
+    filtered = df[
+        (df["Mission Cost (billion USD)"] <= budget) &
+        (df["Cluster"].isin([0, 1, 2]))  # example cluster filtering
+    ]
+    if risk == "Low":
+        filtered = filtered[filtered["Mission Success (%)"] >= 90]
+    elif risk == "Medium":
+        filtered = filtered[filtered["Mission Success (%)"] >= 70]
+    else:
+        filtered = filtered[filtered["Mission Success (%)"] >= 50]
+    return filtered.head(3)
 
 
-recommendation = None
+
 if st.button("Recommend_Mission"):
     recommendation = Recommend_Mission(budget, risk)
 if recommendation:
