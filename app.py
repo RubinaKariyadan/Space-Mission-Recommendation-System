@@ -3,6 +3,10 @@ import pandas as pd
 import numpy as np
 df = pd.read_csv("space_missions_dataset.csv")
 st.dataframe(df.head())
+df["Scientific_ROI"] = (
+    df["Scientific Yield (points)"] /
+    df["Mission Cost (billion USD)"]
+)
 X = df[["Scientific_ROI", "Mission Cost (billion USD)", "Mission Success (%)"]]
 kmeans = KMeans(n_clusters=3, random_state=42)
 df["Cluster"] = kmeans.fit_predict(X)
